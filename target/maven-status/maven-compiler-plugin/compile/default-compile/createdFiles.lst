@@ -1,2 +1,4 @@
-com/onepiece/LoginController.class
+com/onepiece/repository/UserRepository.class
+com/onepiece/model/User.class
 com/onepiece/OnePieceLoginApplication.class
+com/onepiece/LoginController.class

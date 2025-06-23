@@ -207,7 +207,7 @@
                     <img src="https://images-cdn.ubuy.co.in/636347a93f3d090c9e6e0342-one-piece-luffy-flag-sticker-decal.jpg" alt="One Piece Logo">
                 </div>
                 <h1>One Piece Registration</h1>
-                <form id="registrationForm" onsubmit="return validateForm(event)">
+               <form id="registrationForm" action="/submit" method="post" enctype="multipart/form-data" onsubmit="return validateForm(event)">
                     <div class="form-group">
                         <label for="firstName">First Name <span class="required">*</span></label>
                         <input type="text" id="firstName" name="firstName" required>
@@ -272,36 +272,26 @@
             }
         }
 
-        // Form validation and submission
-        function validateForm(event) {
-            event.preventDefault();
+function validateForm(event) {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
 
-            const email = document.getElementById('email').value;
-            if (!email.endsWith('@gmail.com')) {
-                alert('Please use a Gmail address.');
-                return false;
-            }
+    if (!email.endsWith('@gmail.com')) {
+        alert('Please use a Gmail address.');
+        return false;
+    }
 
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
+    if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return false;
+    }
 
-            if (password !== confirmPassword) {
-                alert('Passwords do not match.');
-                return false;
-            }
-
-            // Hide registration page and show welcome page
-            document.getElementById('registrationPage').style.display = 'none';
-            document.getElementById('welcomePage').style.display = 'flex';
-
-            return false;
-        }
-
+    return true; // ✅ allow real form submission
+}
         // Reset form and go back to registration
         function resetForm() {
             document.getElementById('registrationForm').reset();
-            document.getElementById('registrationPage').style.display = 'flex';
-            document.getElementById('welcomePage').style.display = 'none';
         }
     </script>
 </body>
