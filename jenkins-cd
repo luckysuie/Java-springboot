@@ -22,13 +22,17 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to aks with argocd') {
+        stage('Deploy to AKS with ArgoCD') {
             steps {
-                echo 'Deploying the application to AKS using ArgoCD...'
-                sh '''
-                    argocd login luckyargocd.azurewebsites.net --username admin --password Y8eYxzixlLgZKSG6 --insecure
+                echo 'Deploying application via ArgoCD...'
+                sh """
+                    argocd login luckyargocd.azurewebsites.net \
+                    --username admin \
+                    --password YourPasswordHere \
+                    --insecure
+
                     argocd app sync onepiece-app
-                '''
+                """
             }
         }
     }
