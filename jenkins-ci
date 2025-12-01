@@ -32,7 +32,7 @@ pipeline {
                 withSonarQubeEnv('sonar-server') {      // make sure this matches the name in Jenkins Global Tool Configuration
                     sh '''
                         ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
-                        -Dsonar.projectKey=luckysuie_Java-springboot \
+                        -Dsonar.projectKey=luckysuie_Java-springboot_1234 \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=http://4.206.81.78:9000/ \
                         -Dsonar.login=${SONAR_TOKEN}
@@ -47,7 +47,7 @@ pipeline {
                 withSonarQubeEnv('sonar-server') {      // make sure this matches the name in Jenkins Global Tool Configuration
                     sh '''
                         ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
-                        -Dsonar.projectKey=luckysuie_Java-springboot \
+                        -Dsonar.projectKey=luckysuie_Java-springboot_1234 \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=http://4.206.81.78:9000/ \
                         -Dsonar.login=${SONAR_TOKEN} \
