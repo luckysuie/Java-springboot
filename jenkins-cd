@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('git checkout') {
             steps {
@@ -7,29 +8,29 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/luckysuie/Java-springboot.git'
             }
         }
+
         stage('checks CI pipeline status') {
             steps {
                 echo 'CI pipeline is working fine...'
-                steps {
-                    script {
-                        def buildStatus = currentBuild.currentResult
-                        if (buildStatus == 'SUCCESS') {
-                            echo "Build succeeded! continuing to CD pipeline..."
-                        } else {
-                            error "Build failed with status: ${buildStatus}"
-                        }
+                script {
+                    def buildStatus = currentBuild.currentResult
+                    if (buildStatus == 'SUCCESS') {
+                        echo "Build succeeded! continuing to CD pipeline..."
+                    } else {
+                        error "Build failed with status: ${buildStatus}"
                     }
                 }
             }
         }
+
         stage('Deploy to AKS with ArgoCD') {
             steps {
                 echo 'Deploying application via ArgoCD...'
                 sh """
                     argocd login luckyargocd.azurewebsites.net \
-                    --username admin \
-                    --password Y8eYxzixlLgZKSG6 \
-                    --insecure
+                      --username admin \
+                      --password Y8eYxzixlLgZKSG6 \
+                      --insecure
 
                     argocd app sync onepiece-app
                 """
