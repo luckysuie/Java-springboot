@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo 'Deploying application via ArgoCD...'
                 sh """
-                    argocd login luckyargocd.azurewebsites.net \
+                    argocd login 4.239.149.181 \ # replace with your ArgoCD server address with this command kubectl get svc -n argocd
                       --username admin \
                       --password Y8eYxzixlLgZKSG6 \
                       --insecure
