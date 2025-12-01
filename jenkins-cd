@@ -28,7 +28,7 @@ pipeline {
                 sh """
                     argocd login luckyargocd.azurewebsites.net \
                     --username admin \
-                    --password YourPasswordHere \
+                    --password Y8eYxzixlLgZKSG6 \
                     --insecure
 
                     argocd app sync onepiece-app
