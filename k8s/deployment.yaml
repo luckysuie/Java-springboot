@@ -18,7 +18,7 @@ spec:
       - name: acr-secret
       containers:
       - name: onepiece-app
-        image: luckyregistry11.azurecr.io/onepiece-app:v1
+        image: luckyregistry.azurecr.io/onepiece-app:${imageTag}
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
