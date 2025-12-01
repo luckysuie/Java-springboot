@@ -32,9 +32,6 @@ pipeline {
                       --username admin \
                       --password Y8eYxzixlLgZKSG6 \
                       --insecure
-                    
-                    # onepiece-app is the name of the application created in ArgoCD in application.yaml file
-                    argocd app sync onepiece-app
                 """
             }
         }
