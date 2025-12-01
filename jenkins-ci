@@ -78,11 +78,11 @@ pipeline {
                     def imageTag = "${env.BUILD_NUMBER}"
                     def imageName = "luckyregistry.azurecr.io/onepiece-app:v${imageTag}"
 
-                    sh '''
+                    sh """
                         az acr login --name luckyregistry
                         docker build -t ${imageName} .
                         docker push ${imageName}
-                    '''
+                    """
                 }
             }
         }
