@@ -27,11 +27,13 @@ pipeline {
             steps {
                 echo 'Deploying application via ArgoCD...'
                 sh """
-                    argocd login 4.239.149.181 \ # replace with your ArgoCD server address with this command kubectl get svc -n argocd
+                    # Replace the following with your ArgoCD login details with kubectl get svc -n argocd
+                    argocd login 4.239.149.181 \
                       --username admin \
                       --password Y8eYxzixlLgZKSG6 \
                       --insecure
-
+                    
+                    # onepiece-app is the name of the application created in ArgoCD in application.yaml file
                     argocd app sync onepiece-app
                 """
             }
