@@ -83,7 +83,7 @@ pipeline {
                         az acr login --name luckyregistry
                         docker build -t ${versionedImage} -t ${latestImage} .
                         docker push ${versionedImage}
-                        docker push ${imageName}
+                        docker push ${latestImage}
                     """
                 }
             }
