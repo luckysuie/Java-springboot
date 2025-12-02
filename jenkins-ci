@@ -35,7 +35,7 @@ pipeline {
                         -Dsonar.projectKey=luckysuie_Java-springboot_1234 \
                         -Dsonar.sources=. \
                         -Dsonar.java.binaries=target/classes \
-                        -Dsonar.host.url=http://4.206.112.5:9000/ \
+                        -Dsonar.host.url=http://4.206.151.10:9000/ \
                         -Dsonar.login=${SONAR_TOKEN}
                     '''
                 }
@@ -51,7 +51,7 @@ pipeline {
                         -Dsonar.projectKey=luckysuie_Java-springboot_1234 \
                         -Dsonar.sources=. \
                         -Dsonar.java.binaries=target/classes \
-                        -Dsonar.host.url=http://4.206.112.5:9000/ \
+                        -Dsonar.host.url=http://4.206.151.10:9000/ \
                         -Dsonar.login=${SONAR_TOKEN} \
                         -Dsonar.qualitygate.wait=false
                     '''
